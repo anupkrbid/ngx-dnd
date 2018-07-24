@@ -6,5 +6,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  navigations = [
+    {
+      url: '/draggable-directive-example',
+      title: 'Draggable Directive'
+    },
+    {
+      url: '/moveable-directive-example',
+      title: 'Moveable Directive'
+    },
+    {
+      url: '/moveable-area-example',
+      title: 'Moveable Area'
+    },
+    {
+      url: '/advanced-positioning-example',
+      title: 'Advanced Positioning'
+    },
+    {
+      url: '/sortable-behaviour-example',
+      title: 'Sortable Behaviour'
+    },
+    {
+      url: '/droppable-behaviour-example',
+      title: 'Droppable Behaviour'
+    }
+  ];
 }

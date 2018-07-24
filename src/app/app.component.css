@@ -1,0 +1,12 @@
+a {
+  display: inline-block;
+  padding: 0.4rem;
+  text-decoration: none;
+  color: darkorchid;
+}
+
+a:active,
+a:hover,
+a.active {
+  font-weight: bold;
+}
