@@ -1,18 +1,23 @@
+import { DraggableHelperDirective } from './draggable-helper.directive';
 import {
   Directive,
   EventEmitter,
   HostBinding,
   HostListener,
-  Output
+  Output,
+  ContentChild
 } from '@angular/core';
 
 @Directive({
   selector: '[appDraggable]'
 })
 export class DraggableDirective {
+  @ContentChild(DraggableHelperDirective) helper: DraggableHelperDirective;
+
   @Output() dragStart = new EventEmitter<PointerEvent>();
   @Output() dragMove = new EventEmitter<PointerEvent>();
   @Output() dragEnd = new EventEmitter<PointerEvent>();
+
   @HostBinding('class.draggable') draggable = true;
   @HostBinding('class.dragging') dragging = false;
 
@@ -23,6 +28,9 @@ export class DraggableDirective {
     event.stopPropagation();
     this.dragging = true;
     this.dragStart.emit(event);
+
+    // render the helper
+    this.helper.onDragStart();
   }
 
   @HostListener('document:pointermove', ['$event'])
@@ -40,5 +48,8 @@ export class DraggableDirective {
     }
     this.dragging = false;
     this.dragEnd.emit(event);
+
+    // clear the helper
+    this.helper.onDragEnd();
   }
 }
