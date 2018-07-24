@@ -1,3 +1,8 @@
-<p>
-  draggable-directive-example works!
-</p>
+<div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
+  Box
+</div>
+<div class="box" appDraggableRx (dragStart)="onDragStart()" (dragMove)="onDragMove($event)" (dragEnd)="onDragEnd()">
+  Rx Box
+</div>
+
+<span>check console for emited data</span>
