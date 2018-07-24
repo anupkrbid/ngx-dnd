@@ -9,14 +9,14 @@ const routes: Routes = [
       './pages/draggable-directive-example/draggable-directive-example.module#DraggableDirectiveExampleModule'
   },
   {
-    path: 'moveable-directive-example',
+    path: 'movable-directive-example',
     loadChildren:
-      './pages/moveable-directive-example/moveable-directive-example.module#MoveableDirectiveExampleModule'
+      './pages/movable-directive-example/movable-directive-example.module#MovableDirectiveExampleModule'
   },
   {
-    path: 'moveable-area-example',
+    path: 'movable-area-example',
     loadChildren:
-      './pages/moveable-area-example/moveable-area-example.module#MoveableAreaExampleModule'
+      './pages/movable-area-example/movable-area-example.module#MovableAreaExampleModule'
   },
   {
     path: 'advanced-positioning-example',

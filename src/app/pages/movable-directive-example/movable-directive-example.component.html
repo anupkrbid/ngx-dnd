@@ -1,0 +1,31 @@
+<div class="box" appMovable [appMovableReset]="true">
+  Movable & Reset
+</div>
+
+<div class="box" appMovable>
+  Movable
+</div>
+
+<br>
+
+<div class="box" appMovable>
+  <div class="box" appMovable [appMovableReset]="true">
+    Movable & Reset in Container
+  </div>
+
+  <div class="box" appMovable>
+    Movable with respect to Container
+  </div>
+</div>
+
+<br>
+
+<div class="box" appMovable [appMovableReset]="true">
+  <div class="box" appMovable [appMovableReset]="true">
+    Movable & Reset in Container with Container Reset
+  </div>
+
+  <div class="box" appMovable>
+    Movable with respect to Container with Container Reset
+  </div>
+</div>

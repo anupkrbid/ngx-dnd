@@ -12,12 +12,12 @@ export class AppComponent {
       title: 'Draggable Directive'
     },
     {
-      url: '/moveable-directive-example',
-      title: 'Moveable Directive'
+      url: '/movable-directive-example',
+      title: 'Movable Directive'
     },
     {
-      url: '/moveable-area-example',
-      title: 'Moveable Area'
+      url: '/movable-area-example',
+      title: 'Movable Area'
     },
     {
       url: '/advanced-positioning-example',
