@@ -6,7 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movable-area-example.component.css']
 })
 export class MovableAreaExampleComponent implements OnInit {
-  constructor() {}
+  boxes: any[] = [];
 
+  constructor() {}
   ngOnInit() {}
+
+  addNewBox() {
+    this.boxes.push({
+      label: 'New Trapped Box',
+      resetOnDragEnd: false
+    });
+  }
+
+  addNewResetBox() {
+    this.boxes.push({
+      label: 'New Trapped Reset Box',
+      resetOnDragEnd: true
+    });
+  }
 }

@@ -1,3 +1,32 @@
-<p>
-  movable-area-example works!
-</p>
+<div class="area" appMovableArea>
+  <div class="box" appMovable [appMovableReset]="true">
+    Movable, Trapped & Reset
+  </div>
+
+  <div class="box" appMovable>
+    Movable & Trapped
+  </div>
+</div>
+
+<br>
+
+<div class="area" appMovableArea>
+
+  <div class="box" appMovable>
+    Trapped Box 1
+  </div>
+
+  <div class="box" appMovable [appMovableReset]="true">
+    Trapped Reset Box 1
+  </div>
+
+  <div class="box" appMovable [appMovableReset]="box.resetOnDragEnd" *ngFor="let box of boxes; let i = index;">
+    {{ box.label }} {{ i + 1 }}
+  </div>
+
+</div>
+
+<br>
+
+<button (click)="addNewBox()">Add New Box</button>
+<button (click)="addNewResetBox()">Add New Reset Box</button>

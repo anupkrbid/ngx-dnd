@@ -1,4 +1,10 @@
-import { Directive, HostBinding, HostListener, Input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  Input
+} from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 import { DraggableDirective } from './draggable.directive';
@@ -20,10 +26,10 @@ export class MovableDirective extends DraggableDirective {
       `translateX(${this.position.x}px) translateY(${this.position.y}px)`
     );
   }
-  private position: Position = { x: 0, y: 0 };
+  position: Position = { x: 0, y: 0 };
   private startPosition: Position;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(public element: ElementRef, private sanitizer: DomSanitizer) {
     super();
   }
 
