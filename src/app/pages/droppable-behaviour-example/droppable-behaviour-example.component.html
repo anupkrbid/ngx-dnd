@@ -1,12 +1,14 @@
-<div appDraggable appDroppable *ngFor="let box of availableBoxes" class="box">
+<div appDraggable appDroppable (dragStart)="onDragStart($event, box, 'available',  i)" *ngFor="let box of availableBoxes; let i = index;"
+  class="box">
   {{ box }}
   <div *appDraggableHelper class="box">
     {{ box }}
   </div>
 </div>
 
-<div appDropzone class="dropzone">
-  <div appDraggable appDroppable *ngFor="let box of dropzone1Boxes" class="box">
+<div appDropzone class="dropzone" (drop)="move('dropzone1')">
+  <div appDraggable appDroppable (dragStart)="onDragStart($event, box, 'dropzone1', i)" *ngFor="let box of dropzone1Boxes; let i = index;"
+    class="box">
     {{ box }}
     <div *appDraggableHelper class="box">
       {{ box }}
@@ -14,8 +16,9 @@
   </div>
 </div>
 
-<div appDropzone class="dropzone">
-  <div appDraggable appDroppable *ngFor="let box of dropzone2Boxes" class="box">
+<div appDropzone class="dropzone" (drop)="move('dropzone2')">
+  <div appDraggable appDroppable (dragStart)="onDragStart($event, box, 'dropzone2', i)" *ngFor="let box of dropzone2Boxes; let i = index;"
+    class="box">
     {{ box }}
     <div *appDraggableHelper class="box">
       {{ box }}

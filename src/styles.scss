@@ -41,7 +41,19 @@
   margin: 20px 5px;
   background: lightgray;
   min-height: 200px;
-  border: 1px solid black;
+  border: 2px solid black;
+
+  &.dropzone-active {
+    border: 2px solid coral;
+  }
+
+  &.dropzone-entered {
+    background: coral;
+  }
+}
+
+.draggable-overlay-helper {
+  pointer-events: none !important;
 }
 
 ul {

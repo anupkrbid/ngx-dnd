@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+interface CurrentDraggingBox {
+  name: string;
+  index: number;
+  moveFrom: string;
+}
+
 @Component({
   selector: 'app-droppable-behaviour-example',
   templateUrl: './droppable-behaviour-example.component.html',
   styleUrls: ['./droppable-behaviour-example.component.css']
 })
 export class DroppableBehaviourExampleComponent implements OnInit {
+  currentDraggingBox: CurrentDraggingBox;
   availableBoxes = [
     'Box 1',
     'Box 2',
@@ -21,4 +28,25 @@ export class DroppableBehaviourExampleComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onDragStart(
+    event: PointerEvent,
+    boxName: string,
+    moveFrom: string,
+    boxIndex: number
+  ) {
+    this.currentDraggingBox = {
+      name: boxName,
+      index: boxIndex,
+      moveFrom: moveFrom
+    };
+  }
+
+  move(dropzone: string) {
+    this[`${dropzone}Boxes`].push(this.currentDraggingBox.name);
+    this[`${this.currentDraggingBox.moveFrom}Boxes`].splice(
+      this.currentDraggingBox.index,
+      1
+    );
+  }
 }

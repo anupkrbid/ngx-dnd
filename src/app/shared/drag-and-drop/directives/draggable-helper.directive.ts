@@ -41,7 +41,8 @@ export class DraggableHelperDirective implements OnInit, OnDestroy {
 
     // create overlay
     this.overlayRef = this.overlay.create({
-      positionStrategy: this.positionStrategy
+      positionStrategy: this.positionStrategy,
+      panelClass: 'draggable-overlay-helper'
     });
   }
 
