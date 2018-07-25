@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { DraggableDirective } from './directives/draggable.directive';
 import { DraggableRxDirective } from 'src/app/shared/drag-and-drop/directives/draggable-rx.directive';
 import { DraggableHelperDirective } from './directives/draggable-helper.directive';
 import { DroppableDirective } from './directives/droppable.directive';
+import { DroppableService } from './services/droppable.service';
 import { DropzoneDirective } from './directives/dropzone.directive';
 import { MovableAreaDirective } from './directives/movable-area.directive';
 import { MovableDirective } from './directives/movable.directive';
@@ -35,6 +36,7 @@ import { SortableListDirective } from './directives/sortable-list.directive';
     MovableDirective,
     SortableDirective,
     SortableListDirective
-  ]
+  ],
+  providers: [DroppableService]
 })
 export class DragAndDropModule {}

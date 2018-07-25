@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appDraggable]'
+  selector: '[appDraggable],[appDroppable]'
 })
 export class DraggableDirective {
   // @ContentChild(DraggableHelperDirective) helper: DraggableHelperDirective;

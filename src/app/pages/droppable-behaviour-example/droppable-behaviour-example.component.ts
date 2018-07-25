@@ -49,4 +49,12 @@ export class DroppableBehaviourExampleComponent implements OnInit {
       1
     );
   }
+
+  remove() {
+    this[`${this.currentDraggingBox.moveFrom}Boxes`].splice(
+      this.currentDraggingBox.index,
+      1
+    );
+    this.availableBoxes.push(this.currentDraggingBox.name);
+  }
 }

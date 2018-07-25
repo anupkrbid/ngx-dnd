@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class DroppableService {
   dragStart$: Observable<PointerEvent>;
   dragEnd$: Observable<PointerEvent>;
@@ -17,10 +14,6 @@ export class DroppableService {
 
   onDragStart(event: PointerEvent): void {
     this.dragStartSubject.next(event);
-  }
-
-  onDragMove(event: PointerEvent): void {
-    console.log('onDragMove');
   }
 
   onDragEnd(event: PointerEvent): void {
