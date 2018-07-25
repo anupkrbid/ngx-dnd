@@ -7,6 +7,8 @@ import { DraggableRxDirective } from 'src/app/shared/drag-and-drop/directives/dr
 import { DraggableHelperDirective } from './directives/draggable-helper.directive';
 import { MovableAreaDirective } from './directives/movable-area.directive';
 import { MovableDirective } from './directives/movable.directive';
+import { SortableDirective } from './directives/sortable.directive';
+import { SortableListDirective } from './directives/sortable-list.directive';
 
 @NgModule({
   imports: [CommonModule, OverlayModule],
@@ -15,14 +17,18 @@ import { MovableDirective } from './directives/movable.directive';
     DraggableRxDirective,
     DraggableHelperDirective,
     MovableAreaDirective,
-    MovableDirective
+    MovableDirective,
+    SortableDirective,
+    SortableListDirective
   ],
   exports: [
     DraggableDirective,
     DraggableRxDirective,
     DraggableHelperDirective,
     MovableAreaDirective,
-    MovableDirective
+    MovableDirective,
+    SortableDirective,
+    SortableListDirective
   ]
 })
 export class DragAndDropModule {}

@@ -1,3 +1,6 @@
-<p>
-  sortable-behaviour-example works!
-</p>
+<ul appSortableList (sort)="sort($event)">
+  <li class="box" appSortable *ngFor="let item of sortableList">
+    {{ item }}
+    <div class="box" *appDraggableHelper>{{ item }}</div>
+  </li>
+</ul>

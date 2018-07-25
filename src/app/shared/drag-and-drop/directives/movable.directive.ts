@@ -30,7 +30,7 @@ export class MovableDirective extends DraggableDirective {
   private startPosition: Position;
 
   constructor(public element: ElementRef, private sanitizer: DomSanitizer) {
-    super();
+    super(element);
   }
 
   @HostListener('dragStart', ['$event'])
