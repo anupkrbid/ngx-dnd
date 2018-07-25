@@ -2,9 +2,9 @@ import {
   Directive,
   EventEmitter,
   HostBinding,
-  Output,
+  HostListener,
   OnInit,
-  HostListener
+  Output
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { switchMap, takeUntil, repeat, take } from 'rxjs/operators';

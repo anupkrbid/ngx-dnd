@@ -40,5 +40,9 @@ ul {
   display: inline-flex;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
+}
+
+ul.vertical-list {
   flex-direction: column;
 }

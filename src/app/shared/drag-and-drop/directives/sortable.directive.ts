@@ -1,4 +1,5 @@
 import { Directive, forwardRef, HostBinding } from '@angular/core';
+
 import { DraggableDirective } from './draggable.directive';
 
 @Directive({
@@ -12,7 +13,4 @@ import { DraggableDirective } from './draggable.directive';
 })
 export class SortableDirective extends DraggableDirective {
   @HostBinding('class.sortable') sortable = true;
-  // constructor(public element: ElementRef) {
-  //   super(element);
-  // }
 }

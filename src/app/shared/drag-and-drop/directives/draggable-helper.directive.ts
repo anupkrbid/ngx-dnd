@@ -1,14 +1,14 @@
 import {
   Directive,
-  TemplateRef,
-  ViewContainerRef,
+  OnDestroy,
   OnInit,
-  OnDestroy
+  TemplateRef,
+  ViewContainerRef
 } from '@angular/core';
 import {
+  GlobalPositionStrategy,
   Overlay,
-  OverlayRef,
-  GlobalPositionStrategy
+  OverlayRef
 } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 

@@ -1,4 +1,15 @@
-<ul appSortableList (sort)="sort($event)">
+<h3>Horizontal Sort</h3>
+<ul class="horizontal-list" appSortableList (sort)="sort($event)">
+  <li class="box" appSortable *ngFor="let item of sortableList">
+    {{ item }}
+    <div class="box" *appDraggableHelper>{{ item }}</div>
+  </li>
+</ul>
+
+<br>
+
+<h3>Vertical Sort</h3>
+<ul class="vertical-list" appSortableList (sort)="sort($event)">
   <li class="box" appSortable *ngFor="let item of sortableList">
     {{ item }}
     <div class="box" *appDraggableHelper>{{ item }}</div>

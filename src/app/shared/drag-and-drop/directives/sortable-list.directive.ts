@@ -8,11 +8,17 @@ import {
 } from '@angular/core';
 
 import { SortableDirective } from './sortable.directive';
+import { createDirectiveInstance } from '@angular/core/src/view/provider';
 
 export interface SortEvent {
   currentIndex: number;
   newIndex: number;
 }
+
+const distance = (rectA: ClientRect, rectB: ClientRect): number =>
+  Math.sqrt(
+    Math.pow(rectB.top - rectA.top, 2) + Math.pow(rectB.left - rectA.left, 2)
+  );
 
 @Directive({
   selector: '[appSortableList]'
@@ -39,28 +45,50 @@ export class SortableListDirective implements AfterContentInit {
   }
 
   private detectSorting(sortable: SortableDirective, event: PointerEvent) {
+    // get all the client rects
+    // sort them by distance to current sortable
+    // find rectangle that we need to swap with
+    // stop
     const currentIndex = this.sortables.toArray().indexOf(sortable);
+    const currentRect = this.clientRects[currentIndex];
 
-    const previousRect =
-      currentIndex > 0 ? this.clientRects[currentIndex - 1] : undefined;
-    const nextRect =
-      currentIndex < this.clientRects.length - 1
-        ? this.clientRects[currentIndex + 1]
-        : undefined;
+    const sorted = this.clientRects
+      .slice()
+      .sort(
+        (rectA, rectB) =>
+          // sort by distance to current rect
+          distance(rectA, currentRect) - distance(rectB, currentRect)
+      )
+      .some(rect => {
+        // find first rect tht we need to swap with
+        if (rect === currentRect) {
+          return false;
+        }
 
-    if (
-      previousRect &&
-      event.clientY < previousRect.top + previousRect.height / 2
-    ) {
-      this.sort.emit({
-        currentIndex: currentIndex,
-        newIndex: currentIndex - 1
+        const isHorizontal = rect.top === currentRect.top;
+        const isBefore = isHorizontal
+          ? rect.left < currentRect.left
+          : rect.top < currentRect.top;
+
+        let moveBack = false;
+        let moveForward = false;
+
+        if (isHorizontal) {
+          moveBack = isBefore && event.clientX < rect.left + rect.width / 2;
+          moveForward = !isBefore && event.clientX > rect.left + rect.width / 2;
+        } else {
+          moveBack = isBefore && event.clientY < rect.top + rect.height / 2;
+          moveForward = !isBefore && event.clientY > rect.top + rect.height / 2;
+        }
+
+        if (moveBack || moveForward) {
+          this.sort.emit({
+            currentIndex: currentIndex,
+            newIndex: this.clientRects.indexOf(rect)
+          });
+          return true;
+        }
+        return false;
       });
-    } else if (nextRect && event.clientY > nextRect.top + nextRect.height / 2) {
-      this.sort.emit({
-        currentIndex: currentIndex,
-        newIndex: currentIndex + 1
-      });
-    }
   }
 }

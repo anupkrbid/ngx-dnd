@@ -17,9 +17,7 @@ export class SortableBehaviourExampleComponent implements OnInit {
     'Box 5',
     'Box 6',
     'Box 7',
-    'Box 8',
-    'Box 9',
-    'Box 10'
+    'Box 8'
   ];
   constructor() {}
 
