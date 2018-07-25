@@ -1,3 +1,24 @@
-<p>
-  droppable-behaviour-example works!
-</p>
+<div appDraggable appDroppable *ngFor="let box of availableBoxes" class="box">
+  {{ box }}
+  <div *appDraggableHelper class="box">
+    {{ box }}
+  </div>
+</div>
+
+<div appDropzone class="dropzone">
+  <div appDraggable appDroppable *ngFor="let box of dropzone1Boxes" class="box">
+    {{ box }}
+    <div *appDraggableHelper class="box">
+      {{ box }}
+    </div>
+  </div>
+</div>
+
+<div appDropzone class="dropzone">
+  <div appDraggable appDroppable *ngFor="let box of dropzone2Boxes" class="box">
+    {{ box }}
+    <div *appDraggableHelper class="box">
+      {{ box }}
+    </div>
+  </div>
+</div>
